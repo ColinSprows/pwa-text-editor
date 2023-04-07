@@ -14,9 +14,17 @@
     "install": "cd client && npm install",
     "client": "cd client && npm start"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColinSprows/pwa-text-editor.git"
+  },
   "keywords": [],
   "author": "colinsprows",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ColinSprows/pwa-text-editor/issues"
+  },
+  "homepage": "https://github.com/ColinSprows/pwa-text-editor#readme",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
