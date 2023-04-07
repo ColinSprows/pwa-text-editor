@@ -22,12 +22,13 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'TODOs List'
+        title: 'JATE'
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "src-sw.js",
       }),
+      new MiniCssExtractPlugin(),
       new WebpackPwaManifest({
         name: "App",
         short_name: 'MyPWA',
@@ -35,14 +36,17 @@ module.exports = () => {
         display: 'standalone',
         orientation: 'portrait',
         fingerprints: false,
-        publicPath: './',
+        publicPath: '/',
+        start_url: '/',
+        inject: true,
         icons:
           {
             src: path.resolve('src/images/logo.png'),
-            sizes: [120, 152, 167, 180, 1024],
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons')
           },
       }),
-      new MiniCssExtractPlugin(),
+      
     ],
 
     module: {
@@ -50,10 +54,6 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: "asset/resource",
         },
         {
           test: /\.m?js$/,
